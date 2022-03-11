@@ -11,20 +11,19 @@
         <img class="rounded img-fluid" :src="profile.picture" alt="" />
       </div>
       <div class="col-9">
+        <h2>{{profile.class}} </h2>
         <h1>{{ profile.name }}</h1>
       
-        <i class="mdi mdi-github"></i>
-        <i class="mdi mdi-linkedin"></i>
-        <i class="mdi mdi-certificate"></i>
+        <a v-if="profile.github != ''" :href="profile.github"><i class="mdi mdi-github"></i></a>
+        <a  v-if="profile.linkedin != ''" :href="profile.linkedin"><i class="mdi mdi-linkedin"></i></a>
+        <i v-if="profile.graduated" class="mdi mdi-certificate"></i>
         
       </div>
     </div>
     
 
    <div class="p-3">
-    <p>{{ profile.email }}</p>
     <p>{{profile.bio}} </p>
-    <p>{{profile.github || profile.linkedin }} </p>
     </div>
 
   </div>
@@ -72,5 +71,9 @@ export default {
 <style scoped>
 .img {
   max-width: 100px;
+}
+a {
+  color: black;
+  text-decoration: none;
 }
 </style>

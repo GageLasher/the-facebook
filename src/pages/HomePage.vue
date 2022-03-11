@@ -4,6 +4,22 @@
     <div class="col-12">
       Search
     </div>
+    <button
+          @click="changePage(older)"
+          class="btn btn-outline-danger me-2"
+          :class="{disabled: !older}"
+          :disabled="!older"
+        >
+          Older Posts
+        </button>
+        <button
+          v-if="newer"
+          @click="changePage(newer)"
+          class="btn btn-outline-danger"
+          
+        >
+          Newer Posts
+        </button>
   </div>
   <div class="row justify-content-center">
     <div class="col-md-6 bg-primary m-3" v-for="p in posts" :key="p.id">
@@ -32,7 +48,17 @@ export default {
       }
     })
     return {
-      posts: computed(()=> AppState.posts)
+      posts: computed(()=> AppState.posts),
+      newer: computed(() => AppState.newer),
+      older: computed(() => AppState.older),
+      async changePage(page) {
+        try {
+          await postsService.changePage(page)
+        } catch (error) {
+          logger.error(error)
+          Pop.toast(error.message, "error")
+        }
+      }
 
     }
   }
