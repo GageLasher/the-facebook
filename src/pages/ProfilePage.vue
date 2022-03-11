@@ -1,9 +1,32 @@
 <template>
-<div class="container-fluid">
-  <div class="about text-center">
-    <h1>Welcome {{ profile.name }}</h1>
-    <img class="rounded" :src="profile.picture" alt="" />
+<div class="container-fluid p-0">
+  <div class="bg-primary">
+  <div class="row">
+    <div class="col-12">
+      <img :src="profile.coverImg" class="img-fluid" alt="">
+    </div>
+  </div>
+    <div class="row text-center justify-content-center">
+      <div class="col-3">
+        <img class="rounded img-fluid" :src="profile.picture" alt="" />
+      </div>
+      <div class="col-9">
+        <h1>{{ profile.name }}</h1>
+      
+        <i class="mdi mdi-github"></i>
+        <i class="mdi mdi-linkedin"></i>
+        <i class="mdi mdi-certificate"></i>
+        
+      </div>
+    </div>
+    
+
+   <div class="p-3">
     <p>{{ profile.email }}</p>
+    <p>{{profile.bio}} </p>
+    <p>{{profile.github || profile.linkedin }} </p>
+    </div>
+
   </div>
   <div class="row justify-content-center">
     <div class="col-8" v-for="p in posts" :key="p.id">
@@ -47,7 +70,7 @@ export default {
 </script>
 
 <style scoped>
-img {
+.img {
   max-width: 100px;
 }
 </style>
