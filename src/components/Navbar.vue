@@ -1,12 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img
-          alt="logo"
-          src="../assets/img/cw-logo.png"
-          height="45"
-        />
+      <div class="d-flex  align-items-center">
+        <img src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2011/09/facebook-logo-face.jpg" class="img-fluid" alt="">
+       <h1>The Facebook</h1>
       </div>
     </router-link>
     <button
@@ -21,13 +18,7 @@
       <span class="navbar-toggler-icon" />
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
-        </li>
-      </ul>
+      
       <span class="navbar-text">
         <button
           class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
@@ -45,20 +36,20 @@
             id="authDropdown"
           >
             <img
-              :src="user.picture"
+              :src="account.picture"
               alt="user photo"
               height="40"
               class="rounded"
             />
-            <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+            <span class="mx-3 text-success lighten-30">{{ account.name }}</span>
           </div>
           <div
             class="dropdown-menu p-0 list-group w-100"
             aria-labelledby="authDropdown"
           >
-            <router-link :to="{ name: 'Account' }">
+            <router-link :to="{ name: 'Profile', params: {id: account.id}}">
               <div class="list-group-item list-group-item-action hoverable">
-                Manage Account
+                My Profile
               </div>
             </router-link>
             <div
@@ -83,6 +74,7 @@ export default {
   setup() {
     return {
       user: computed(() => AppState.user),
+      account: computed(() => AppState.account),
       async login() {
         AuthService.loginWithPopup()
       },
@@ -95,6 +87,9 @@ export default {
 </script>
 
 <style scoped>
+img {
+  height: 50px;
+}
 .dropdown-menu {
   user-select: none;
   display: block;

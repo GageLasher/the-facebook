@@ -43,6 +43,7 @@
         >
           Newer Posts
         </button>
+        <CreatePost v-if="account.id == profile.id" />
   <div class="row justify-content-center">
     <div class="col-8" v-for="p in posts" :key="p.id">
       <Post :post="p" />

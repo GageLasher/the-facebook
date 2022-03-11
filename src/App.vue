@@ -3,23 +3,41 @@
     <Navbar />
   </header>
   <main>
+    <div class="div" v-for="b in banners" :key="b.title">
+      <Banner :banner="b" />
+    </div>
     <router-view />
   </main>
   <footer>
     <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+      Made with 💖 by Gage Lasher
     </div>
   </footer>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted, watchEffect } from 'vue'
 import { AppState } from './AppState'
+import { logger } from './utils/Logger'
+import Pop from './utils/Pop'
+import {bannersService} from '../src/services/bannersService'
+import { postsService } from './services/PostsService'
 export default {
   name: 'App',
   setup() {
+    onMounted(async () => {
+      try {
+        await bannersService.getAll()
+      } catch (error) {
+        logger.error(error)
+        Pop.toast(error.message, "error")
+      }
+    })
+    
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      banners: computed(() => AppState.banners),
+      posts: computed(() => AppState.posts)
     }
   }
 }
