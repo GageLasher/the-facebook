@@ -25,7 +25,8 @@
    <div class="p-3">
     <p>{{profile.bio}} </p>
     </div>
-
+      <EditProfile             v-if="account.id == profile.id"
+ />
   </div>
     <button
           @click="changePage(older)"
