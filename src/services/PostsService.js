@@ -16,6 +16,13 @@ class PostsService {
         AppState.newer = res.data.newer
         AppState.older = res.data.older
     }
+    async search(query = {}) {
+        const res = await api.get('posts?query='+query)
+        logger.log(res.data)
+        AppState.posts = res.data.posts
+        AppState.newer = res.data.newer
+        AppState.older = res.data.older
+    }
 }
 
 

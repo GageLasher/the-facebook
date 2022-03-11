@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      Search
+      <SearchForm />
     </div>
     <button
           @click="changePage(older)"
@@ -16,7 +16,7 @@
           v-if="newer"
           @click="changePage(newer)"
           class="btn btn-outline-danger"
-          
+
         >
           Newer Posts
         </button>
