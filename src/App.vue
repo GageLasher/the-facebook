@@ -3,7 +3,7 @@
     <Navbar />
   </header>
   <main>
-    <div class="div" v-for="b in banners" :key="b.title">
+    <div class="div container-fluid" v-for="b in banners" :key="b.title">
       <Banner :banner="b" />
     </div>
     <router-view />

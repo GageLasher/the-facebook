@@ -17,7 +17,7 @@
    </div>
    <div class="row">
        <div class="col-12">
-           <img :src="post.imgUrl" class="img-fluid" alt="">
+           <img :src="post.imgUrl" class="img-fluid postImg" alt="">
        </div>
    </div>
    <div class="row">
@@ -56,7 +56,7 @@ export default {
             async like(){
                 try {
                     await postsService.like(props.post.id)
-                    
+
                 } catch (error) {
                      logger.log(error)
                    Pop.toast(error.message, "error")
@@ -87,5 +87,8 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.postImg {
+    height: 300px;
+    width: 300px
+}
 </style>
