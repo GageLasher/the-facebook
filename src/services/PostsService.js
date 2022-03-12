@@ -11,10 +11,12 @@ class PostsService {
         AppState.older = res.data.older
     }
     async changePage(page){
+        logger.log(page)
         const res = await api.get(page)
         logger.log(res.data)
         AppState.newer = res.data.newer
         AppState.older = res.data.older
+        AppState.posts = res.data.posts
     }
     async search(query = {}) {
         const res = await api.get('api/posts?query='+query)
@@ -35,8 +37,12 @@ class PostsService {
     }
     async like(id){
         const res = await api.post(`api/posts/${id}/like`)
-        logger.log(res.data)
-        AppState.posts = AppState.posts
+      
+        let post = AppState.posts.find(p => p.id == id)
+        
+        post.likes = res.data.likes
+        
+        
     }
 }
 
