@@ -1,9 +1,9 @@
 <template>
-  <div class="row">
-      <div class="col-12">
-          <img :src="banner.banner" alt="" class="img-fluid">
-      </div>
-  </div>
+        <div class="col-12">
+             <img :src="banner.banner" alt="" class="">
+        </div>
+       
+    
 </template>
 
 

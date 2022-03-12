@@ -2,15 +2,24 @@
   <header>
     <Navbar />
   </header>
-  <main>
-    <div class="div container-fluid" v-for="b in banners" :key="b.title">
+  <main class="container-fluid">
+
+<div class="row justify-content-center">
+       
+ <div class="col-12 m-2" v-for="b in banners" :key="b.title">
+      
       <Banner :banner="b" />
     </div>
+  </div>
+
+ 
+    
+   
     <router-view />
   </main>
   <footer>
     <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by Gage Lasher
+      Gage Lasher
     </div>
   </footer>
 </template>

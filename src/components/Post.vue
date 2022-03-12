@@ -1,9 +1,10 @@
 <template>
+    <div class="card">
    <div class="row">
        <div class="col-2 selectable" @click="goTo('Profile')" >
            <img :src="post.creator.picture" class="img-fluid" alt="">
             </div>
-       <div class="col-10"> <h2> {{post.creator.name}} 
+       <div class="col-10 d-flex justify-content-between"> <h2> {{post.creator.name}} 
            
        </h2>
         <p>{{new Date(post.createdAt).toLocaleString().split(',')[0]}} </p>
@@ -31,6 +32,7 @@
           :disabled="!account.id"
  class="mdi mdi-thumb-up selectable" title="like/unlike post" @click="like"></i> {{post.likes.length}} 
        </div>
+   </div>
    </div>
 </template>
 

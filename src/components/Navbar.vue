@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex  align-items-center">
+      <div class="d-flex">
         <img src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2011/09/facebook-logo-face.jpg" class="img-fluid" alt="">
        <h1>The Facebook</h1>
       </div>

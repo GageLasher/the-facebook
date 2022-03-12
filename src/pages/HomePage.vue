@@ -22,7 +22,7 @@
         </button>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-6 bg-primary m-3" v-for="p in posts" :key="p.id">
+    <div class="col-md-6 m-3" v-for="p in posts" :key="p.id">
       <Post :post="p" />
     </div>
   </div>
