@@ -18,7 +18,7 @@
       <label for="" class="form-label">Image</label>
       <input
         v-model="state.editable.imgUrl"
-        required
+        
         type="text"
         class="form-control"
         aria-describedby="helpId"
